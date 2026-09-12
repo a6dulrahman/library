@@ -1,0 +1,121 @@
+body {
+  margin: 0px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+aside {
+  width: 150px;
+  padding: 30px;
+  background-color: rgb(95, 95, 250);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#addBtn {
+  width: 100px;
+  border-radius: 5px;
+  border: 0px;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 30px;
+  background-color: rgb(139, 112, 236);
+  box-sizing: border-box;
+  display: grid;
+  justify-content: center;
+  grid-template: repeat(3, minmax(170px, 250px)) / repeat(
+      3,
+      minmax(120px, 300px)
+    );
+  gap: 2ch;
+}
+
+.book {
+  background-color: white;
+  width: 95%;
+  height: 95%;
+  padding: 10px;
+  box-shadow: -10px 10px rgba(128, 128, 128, 0.652);
+  border-radius: 5%;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+dialog {
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: -10px 10px rgba(128, 128, 128, 0.412);
+}
+
+.dialog-btns {
+  height: 5ch;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5ch;
+}
+
+.dialog-btns > button {
+  width: 100px;
+  height: 5ch;
+  border-radius: 5px;
+  border: 0px;
+}
+
+form {
+  width: 70ch;
+  height: 30ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+input {
+  width: 40ch;
+  margin-left: 10px;
+}
+
+.book * {
+  margin: 0px;
+}
+
+.book > div {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1ch;
+}
+
+.book p {
+  word-wrap: break-word;
+}
+
+.del, .status{
+  width: 100px;
+  height: 4ch;
+  border-radius: 5px;
+  border: 0px;
+}
+
+div.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.read {
+  background-color: red;
+  color: white;
+}
