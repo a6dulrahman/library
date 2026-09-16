@@ -1,6 +1,6 @@
 // library
 
-const myLibrary = []
+let myLibrary = []
 
 const Book = function (title, author, description, pages, read)
 {
@@ -59,7 +59,7 @@ const displayBooks = function (library)
             const readBtn = document.createElement('button')
             readBtn.textContent = 'read'
             readBtn.classList.add('status')
-            readBtn.dataset.id = `${book.id}`
+            readBtn.dataset.id = book.id
 
 
             btns.appendChild(readBtn)
@@ -67,6 +67,7 @@ const displayBooks = function (library)
             const delBtn = document.createElement('button')
             delBtn.textContent = 'delete'
             delBtn.classList.add('del')
+            delBtn.dataset.id = book.id
             btns.appendChild(delBtn)
 
             card.appendChild(btns)
@@ -90,7 +91,18 @@ main.addEventListener('click', event =>
 {
     if (event.target.classList.contains('del'))
     {
-        event.target.parentElement.remove()
+        event.target.parentElement.parentElement.remove()
+        myLibrary = myLibrary.filter((book) =>
+        {
+            console.log(typeof book.id)
+            console.log(typeof event.target.dataset.id)
+            return book.id !== event.target.dataset.id
+
+        })
+        console.log(myLibrary)
+        main.replaceChildren()
+        displayBooks(myLibrary)
+
     } else if (event.target.classList.contains('status'))
     {
         myLibrary.forEach(book =>
@@ -100,7 +112,6 @@ main.addEventListener('click', event =>
                 book.toggleRead()
             }
         });
-
         main.replaceChildren()
         displayBooks(myLibrary)
 
