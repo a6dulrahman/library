@@ -2,25 +2,28 @@
 
 let myLibrary = []
 
-const Book = function (title, author, description, pages, read)
+class Book
 {
-    if (!new.target)
+    constructor(title, author, description, pages, read)
     {
-        throw new Error('Can\'t create a new object without `new` keyword!')
+        if (!new.target)
+        {
+            throw new Error('Can\'t create a new object without `new` keyword!')
+        }
+
+        this.id = crypto.randomUUID()
+        this.title = title
+        this.author = author
+        this.description = description
+        this.pages = pages
+        this.read = read
     }
-
-    this.id = crypto.randomUUID()
-    this.title = title
-    this.author = author
-    this.description = description
-    this.pages = pages
-    this.read = read
+    toggleRead()
+    {
+        this.read = !this.read
+    }
 }
 
-Book.prototype.toggleRead = function ()
-{
-    this.read = !this.read
-}
 
 const addBook = function (title, author, description, pages)
 {
@@ -94,12 +97,9 @@ main.addEventListener('click', event =>
         event.target.parentElement.parentElement.remove()
         myLibrary = myLibrary.filter((book) =>
         {
-            console.log(typeof book.id)
-            console.log(typeof event.target.dataset.id)
             return book.id !== event.target.dataset.id
 
         })
-        console.log(myLibrary)
         main.replaceChildren()
         displayBooks(myLibrary)
 
